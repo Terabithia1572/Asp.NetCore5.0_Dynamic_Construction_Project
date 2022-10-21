@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-  public interface IEmployeeDal
+  public interface IEmployeeDal : IGenericDal<Employee>
     {
-        List<Employee> GetListAll();
-        void AddEmployee(Employee employee);
-        void DeleteEmployee(Employee employee);
-        void UpdateEmployee(Employee employee);
-        Employee GetByID(int id);
+        //List<Employee> GetListAll();
+        //void AddEmployee(Employee employee);
+        //void DeleteEmployee(Employee employee);
+        //void UpdateEmployee(Employee employee);
+        //Employee GetByID(int id);
 
     }
 }

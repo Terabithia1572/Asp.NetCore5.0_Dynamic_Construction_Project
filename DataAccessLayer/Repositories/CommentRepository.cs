@@ -9,34 +9,34 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    public class EfEmployeeRepository : IEmployeeDal
+    public class CommentRepository : ICommentDal
     {
         Context context = new Context();
-        public void AddEmployee(Employee employee)
+        public void AddComment(Comment comment)
         {
-            context.Add(employee);
+            context.Add(comment);
             context.SaveChanges();
         }
 
-        public void DeleteEmployee(Employee employee)
+        public void DeleteComment(Comment comment)
         {
-            context.Remove(employee);
+            context.Remove(comment);
             context.SaveChanges();
         }
 
-        public Employee GetByID(int id)
+        public Comment GetByID(int id)
         {
-            return context.Employees.Find(id);
+            return context.Comments.Find(id);
         }
 
-        public List<Employee> GetListAll()
+        public List<Comment> GetListAll()
         {
-            return context.Employees.ToList();
+            return context.Comments.ToList();
         }
 
-        public void UpdateEmployee(Employee employee)
+        public void UpdateComment(Comment comment)
         {
-            context.Update(employee);
+            context.Update(comment);
             context.SaveChanges();
         }
     }

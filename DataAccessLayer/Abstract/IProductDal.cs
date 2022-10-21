@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IProductDal
+    public interface IProductDal : IGenericDal<Product>
     {
-        List<Product> GetListAll();
-        void AddProduct(Product product);
-        void DeleteProduct(Product product);
-        void UpdateProduct(Product product);
-        Product GetByID(int id);
+        //List<Product> GetListAll();
+        //void AddProduct(Product product);
+        //void DeleteProduct(Product product);
+        //void UpdateProduct(Product product);
+        //Product GetByID(int id);
     }
 }

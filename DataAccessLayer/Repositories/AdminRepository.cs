@@ -9,34 +9,33 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    public class EfImageRepository : IImageDal
+    public class AdminRepository : IAdminDal
     {
         Context context = new Context();
-        public void AddImage(Image image)
+        public void AddAdmin(Admin admin)
         {
-            context.Add(image);
+            context.Add(admin);
             context.SaveChanges();
         }
 
-        public void DeleteImage(Image image)
+        public void DeleteAdmin(Admin admin)
         {
-            context.Remove(image);
-            context.SaveChanges();
+            context.Remove(admin);
         }
 
-        public Image GetByID(int id)
+        public Admin GetByID(int id)
         {
-            return context.Images.Find(id);
+            return context.Admins.Find(id);
         }
 
-        public List<Image> GetListAll()
+        public List<Admin> ListAllAdmin()
         {
-            return context.Images.ToList();
+            return context.Admins.ToList();
         }
 
-        public void UpdateImage(Image image)
+        public void UpdateAdmin(Admin admin)
         {
-            context.Update(image);
+            context.Update(admin);
             context.SaveChanges();
         }
     }

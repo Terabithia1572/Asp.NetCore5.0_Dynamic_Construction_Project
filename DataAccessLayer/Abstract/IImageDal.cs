@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IImageDal
+    public interface IImageDal : IGenericDal<Image>
     {
-        List<Image> GetListAll();
-        void AddImage(Image image);
-        void DeleteImage(Image image);
-        void UpdateImage(Image image);
-        Image GetByID(int id);
+        //List<Image> GetListAll();
+        //void AddImage(Image image);
+        //void DeleteImage(Image image);
+        //void UpdateImage(Image image);
+        //Image GetByID(int id);
     }
 }

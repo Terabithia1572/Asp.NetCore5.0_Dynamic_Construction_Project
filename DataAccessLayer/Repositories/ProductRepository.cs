@@ -9,34 +9,34 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    public class EfCategoryRepository : ICategoryDal
+    public class ProductRepository : IProductDal
     {
         Context context = new Context();
-        public void AddCategory(Category category)
+        public void AddProduct(Product product)
         {
-            context.Add(category);
+            context.Add(product);
             context.SaveChanges();
         }
 
-        public void DeleteCategory(Category category)
+        public void DeleteProduct(Product product)
         {
-            context.Remove(category);
+            context.Remove(product);
             context.SaveChanges();
         }
 
-        public Category GetByID(int id)
+        public Product GetByID(int id)
         {
-            return context.Categories.Find(id);
+            return context.Products.Find(id);
         }
 
-        public List<Category> ListAllCategory()
+        public List<Product> GetListAll()
         {
-            return context.Categories.ToList();
+            return context.Products.ToList();
         }
 
-        public void UpdateCategory(Category category)
+        public void UpdateProduct(Product product)
         {
-            context.Update(category);
+            context.Update(product);
             context.SaveChanges();
         }
     }

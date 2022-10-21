@@ -9,34 +9,35 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    public class EfCommentRepository : ICommentDal
+    public class ContactRepository : IContactDal
     {
         Context context = new Context();
-        public void AddComment(Comment comment)
+        public void AddContact(Contact contact)
         {
-            context.Add(comment);
+            context.Add(contact);
             context.SaveChanges();
         }
 
-        public void DeleteComment(Comment comment)
+        public void DeleteContact(Contact contact)
         {
-            context.Remove(comment);
+            context.Remove(contact);
             context.SaveChanges();
         }
 
-        public Comment GetByID(int id)
+        public Contact GetByID(int id)
         {
-            return context.Comments.Find(id);
+            return context.Contacts.Find(id);
         }
 
-        public List<Comment> GetListAll()
+        public List<Contact> GetListAll()
         {
-            return context.Comments.ToList();
+            return context.Contacts.ToList();
+
         }
 
-        public void UpdateComment(Comment comment)
+        public void UpdateContact(Contact contact)
         {
-            context.Update(comment);
+            context.Update(contact);
             context.SaveChanges();
         }
     }
