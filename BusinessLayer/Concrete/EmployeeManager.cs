@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace BusinessLayer.Concrete
 {
     public class EmployeeManager : IEmployeeService
     {
+        IEmployeeDal _employeeDal;
+
+        public EmployeeManager(IEmployeeDal employeeDal)
+        {
+            _employeeDal = employeeDal;
+        }
+
         public List<Employee> GetList()
         {
-            throw new NotImplementedException();
+            return _employeeDal.GetListAll();
         }
 
         public void TAdd(Employee t)
         {
-            throw new NotImplementedException();
+            _employeeDal.Insert(t);
         }
 
         public void TDelete(Employee t)
         {
-            throw new NotImplementedException();
+            _employeeDal.Delete(t);
         }
 
         public Employee TGetByID(int id)
         {
-            throw new NotImplementedException();
+           return _employeeDal.GetByID(id);
         }
 
         public void TUpdate(Employee t)
         {
-            throw new NotImplementedException();
+            _employeeDal.Update(t);
         }
     }
 }

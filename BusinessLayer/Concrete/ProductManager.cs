@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace BusinessLayer.Concrete
 {
     public class ProductManager : IProductService
     {
+        IProductDal _productDal;
+
+        public ProductManager(IProductDal productDal)
+        {
+            _productDal = productDal;
+        }
+
         public List<Product> GetList()
         {
-            throw new NotImplementedException();
+           return _productDal.GetListAll();
         }
 
         public void TAdd(Product t)
         {
-            throw new NotImplementedException();
+            _productDal.Insert(t);
         }
 
         public void TDelete(Product t)
         {
-            throw new NotImplementedException();
+            _productDal.Delete(t);
         }
 
         public Product TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _productDal.GetByID(id);
         }
 
         public void TUpdate(Product t)
         {
-            throw new NotImplementedException();
+            _productDal.Update(t);
         }
     }
 }

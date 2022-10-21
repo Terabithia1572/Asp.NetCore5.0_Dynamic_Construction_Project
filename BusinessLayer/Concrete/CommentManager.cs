@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,46 @@ namespace BusinessLayer.Concrete
 {
     public class CommentManager : ICommentService
     {
+        ICommentDal _commentDal;
+
+        public CommentManager(ICommentDal commentDal)
+        {
+            _commentDal = commentDal;
+        }
+
+        public void CommentAdd(Comment comment)
+        {
+            _commentDal.Insert(comment);
+        }
+
+        public List<Comment> GetList(int id)
+        {
+            return _commentDal.GetListAll(x=>x.CommentID==id);
+        }
+
         public List<Comment> GetList()
         {
-            throw new NotImplementedException();
+            return _commentDal.GetListAll();
         }
 
         public void TAdd(Comment t)
         {
-            throw new NotImplementedException();
+            _commentDal.Insert(t);
         }
 
         public void TDelete(Comment t)
         {
-            throw new NotImplementedException();
+            _commentDal.Delete(t);
         }
 
         public Comment TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _commentDal.GetByID(id);
         }
 
         public void TUpdate(Comment t)
         {
-            throw new NotImplementedException();
+            _commentDal.Update(t);
         }
     }
 }
