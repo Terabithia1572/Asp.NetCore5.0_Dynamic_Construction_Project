@@ -4,14 +4,16 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20221021212219_mig_2")]
+    partial class mig_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,39 +185,6 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Images");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Organization", b =>
-                {
-                    b.Property<int>("OrganizationID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("OrganizationDetails1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrganizationDetails2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrganizationImage")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrganizationShortDescription1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrganizationShortDescription2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrganizationShortDescription3")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrganizationTitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("OrganizationID");
-
-                    b.ToTable("Organizations");
-                });
-
             modelBuilder.Entity("EntityLayer.Concrete.Product", b =>
                 {
                     b.Property<int>("ProductID")
@@ -223,7 +192,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryID")
+                    b.Property<int?>("CategoryID")
                         .HasColumnType("int");
 
                     b.Property<string>("ProductDescription")
@@ -251,30 +220,6 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.SpecialProduct", b =>
-                {
-                    b.Property<int>("SpecialProductID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("SpecialProductContent")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecialProductImage")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecialProductTabIndex")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecialProductTitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("SpecialProductID");
-
-                    b.ToTable("SpecialProducts");
-                });
-
             modelBuilder.Entity("EntityLayer.Concrete.Employee", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.Category", "Category")
@@ -288,13 +233,9 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Concrete.Product", b =>
                 {
-                    b.HasOne("EntityLayer.Concrete.Category", "Category")
+                    b.HasOne("EntityLayer.Concrete.Category", null)
                         .WithMany("Products")
-                        .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
+                        .HasForeignKey("CategoryID");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Category", b =>

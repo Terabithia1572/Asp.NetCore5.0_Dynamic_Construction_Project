@@ -1,0 +1,72 @@
+﻿@using EntityLayer.Concrete
+@model List<SpecialProduct>
+
+<section id="specials" class="specials">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Özel</h2>
+            <p>Özel Ürünlerimizi Kontrol Edin</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-3">
+                <ul class="nav nav-tabs flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active show" data-toggle="tab" href="#tab-1123">Odunlu Avize</a>
+                    </li>
+                    @foreach (var item in Model)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#@item.SpecialProductTabIndex">@item.SpecialProductTitle</a>
+                        </li>
+
+                    }
+                </ul>
+            </div>
+            <div class="col-lg-9 mt-4 mt-lg-0">
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="tab-1123">
+                        <div class="row">
+                            <div class="col-lg-8 details order-2 order-lg-1">
+                                <h3>Odunlu Avize</h3>
+                                <p class="font-italic">
+                                    Giveka Trend Ahşap Halat Detaylı 3'lü Sarkıt Avize
+                                    Salon, oturma odası, yatak odası ve yemek odası kullanımına uygundur.
+                                    Gövde tasarımında halat detaylı ahşap, başlıkları krem renk cam kullanılmıştır.
+                                    3 adet duy bulunmaktadır.
+
+                                    Yükseklik:60cm Genişlik:55cm
+
+                                    Duy Tipi:E-27
+                                </p>
+                            </div>
+                            <div class="col-lg-4 text-center order-1 order-lg-2">
+                                <img src="~/menduhinsaat/assets/img/specials-1.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    @foreach (var item in Model)
+                    {
+
+                    
+                    <div class="tab-pane" id="@item.SpecialProductTabIndex">
+                        <div class="row">
+                            <div class="col-lg-8 details order-2 order-lg-1">
+                                <h3>@item.SpecialProductTitle</h3>
+                                <p class="font-italic">
+                                   @item.SpecialProductContent
+                                </p>
+                            </div>
+                            <div class="col-lg-4 text-center order-1 order-lg-2">
+                                <img src="@item.SpecialProductImage" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

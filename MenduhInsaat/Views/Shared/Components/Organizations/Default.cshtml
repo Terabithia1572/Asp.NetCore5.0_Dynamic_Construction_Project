@@ -1,0 +1,45 @@
+﻿@using EntityLayer.Concrete
+@model List<Organization>
+
+<section id="events" class="events">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Etkinlik</h2>
+            <p>Organizasyonlarımız</p>
+        </div>
+
+        <div class="owl-carousel events-carousel" data-aos="fade-up" data-aos-delay="100">
+            @foreach (var item in Model)
+            {
+
+            
+            <div class="row event-item">
+                <div class="col-lg-6">
+                    <img src="@item.OrganizationImage" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                    <h3>@item.OrganizationTitle</h3>
+                    <div class="price">
+                        <p><span>%100 Kalite</span></p>
+                    </div>
+                    <p class="font-italic">
+                        @item.OrganizationDetails1
+                       </p>
+                    <ul>
+                        <li><i class="icofont-check-circled"></i> @item.OrganizationShortDescription1</li>
+                        <li><i class="icofont-check-circled"></i> @item.OrganizationShortDescription1</li>
+                        <li><i class="icofont-check-circled"></i> @item.OrganizationShortDescription1</li>
+                    </ul>
+                    <p>
+                        @item.OrganizationDetails1
+                    </p>
+                </div>
+            </div>
+            }
+
+
+        </div>
+
+    </div>
+</section> 

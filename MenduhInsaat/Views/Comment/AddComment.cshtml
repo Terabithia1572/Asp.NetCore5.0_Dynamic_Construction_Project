@@ -1,0 +1,28 @@
+﻿<section id="book-a-table" class="book-a-table">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Rezervasyon</h2>
+            <p>Bizimle İletişime Geçin !</p>
+        </div>
+
+        <form method="post" class="php-email-form" asp-action="AddComment" asp-controller="Comment" role="form" data-aos="fade-up" data-aos-delay="100">
+            <div class="form-row">
+                <div class="col-lg-4 col-md-6 form-group">
+                    <input type="text" name="CommentUserName" class="form-control" id="name" placeholder="İsminiz" data-rule="minlen:3" data-msg="Lütfen en az 3 karakter girin">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group">
+                    <input type="text" name="CommentTitle" class="form-control" id="name" placeholder="Konu" data-rule="minlen:3" data-msg="Lütfen en az 3 karakter girin">
+                    <div class="validate"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="CommentContent" rows="5" placeholder="Mesajınız"></textarea>
+                <div class="validate"></div>
+            </div>
+            <div class="text-center"><button type="submit">Gönder</button></div>
+        </form>
+
+    </div>
+</section>
