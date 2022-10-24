@@ -12,7 +12,7 @@ namespace MenduhInsaat.Controllers
     public class MailController : Controller
     {
         [HttpGet]
-        public IActionResult SendMail()
+        public PartialViewResult SendMail()
         {
             return PartialView();
         }
@@ -23,7 +23,7 @@ namespace MenduhInsaat.Controllers
             MimeMessage mimeMessage = new MimeMessage();
             MailboxAddress mailboxAddressFrom = new MailboxAddress("Müşteri", "menduhinsaatsite@gmail.com");
             mimeMessage.From.Add(mailboxAddressFrom);
-            MailboxAddress mailboxAddressTo = new MailboxAddress("Admin",mailRequest.ReceiverMail);
+            MailboxAddress mailboxAddressTo = new MailboxAddress("Admin", "menduhinsaatsite@gmail.com");
             mimeMessage.To.Add(mailboxAddressTo);
 
 
@@ -34,12 +34,12 @@ namespace MenduhInsaat.Controllers
             mimeMessage.Subject = mailRequest.Subject;
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Connect("smtp.gmail.com",587,false);
-            smtpClient.Authenticate("menduhinsaatsite@gmail.com", "Yunus6565");
+            smtpClient.Authenticate("menduhinsaatsite@gmail.com", "propcsvferczbndh");
             //smtpClient.Authenticate()
             smtpClient.Send(mimeMessage);
             smtpClient.Disconnect(true);
 
-            return View();
+            return RedirectToAction("Index","Product");
         }
     }
 }
