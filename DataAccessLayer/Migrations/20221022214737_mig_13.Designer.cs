@@ -4,14 +4,16 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20221022214737_mig_13")]
+    partial class mig_13
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,6 +136,9 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
                     b.Property<string>("EmployeeFacebook")
                         .HasColumnType("nvarchar(max)");
 
@@ -159,6 +164,8 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EmployeeID");
+
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Employees");
                 });
@@ -271,6 +278,17 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("SpecialProductID");
 
                     b.ToTable("SpecialProducts");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Employee", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Product", b =>

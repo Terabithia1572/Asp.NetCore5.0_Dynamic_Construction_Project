@@ -19,8 +19,7 @@ namespace EntityLayer.Concrete
         public string EmployeeInstagram { get; set; }
         public string EmployeeLinkedin { get; set; }
         public string EmployeeStatus { get; set; }
-        public int CategoryID { get; set; }
-        public Category Category { get; set; }
+
 
     }
 }

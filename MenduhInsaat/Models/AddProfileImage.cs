@@ -1,23 +1,20 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer.Concrete
+namespace MenduhInsaat.Models
 {
-    public class Comment
+    public class AddProfileImage
     {
-        [Key]
+        
         public int CommentID { get; set; }
         public string CommentUserName { get; set; }
         public string CommentTitle { get; set; }
         public string CommentContent { get; set; }
-        public string ImageUrl { get; set; }
+        public IFormFile ImageUrl { get; set; }
         public DateTime CommentDate { get; set; }
         public bool CommentStatus { get; set; }
-
     }
 }

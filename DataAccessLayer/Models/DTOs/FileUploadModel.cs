@@ -6,18 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer.Concrete
+
+namespace DataAccessLayer.Models.DTOs
 {
-    public class Comment
+    public class FileUploadModel
     {
-        [Key]
-        public int CommentID { get; set; }
         public string CommentUserName { get; set; }
         public string CommentTitle { get; set; }
         public string CommentContent { get; set; }
-        public string ImageUrl { get; set; }
         public DateTime CommentDate { get; set; }
         public bool CommentStatus { get; set; }
+        public IFormFile ImageUrl { get; set; }
 
     }
 }
