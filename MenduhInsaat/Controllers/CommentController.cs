@@ -3,6 +3,7 @@ using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Models.DTOs;
 using EntityLayer.Concrete;
 using MenduhInsaat.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,6 +15,7 @@ using System.Web;
 
 namespace MenduhInsaat.Controllers
 {
+    [AllowAnonymous]
     public class CommentController : Controller
     {
         CommentManager commentManager = new CommentManager(new EfCommentRepository());

@@ -1,5 +1,6 @@
 ﻿using MailKit.Net.Smtp;
 using MenduhInsaat.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace MenduhInsaat.Controllers
 {
+    [AllowAnonymous]
     public class MailController : Controller
     {
         [HttpGet]
