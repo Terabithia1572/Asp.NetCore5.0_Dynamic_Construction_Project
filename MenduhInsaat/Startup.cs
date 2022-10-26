@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,6 +40,15 @@ namespace MenduhInsaat
                 config.Filters.Add(new AuthorizeFilter(policy));
             
             });
+
+            services.AddMvc();
+            services.AddAuthentication(
+
+                CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(x =>
+                {
+                    x.LoginPath = "/Login/Index";
+                });
             
         }
 
@@ -59,7 +69,7 @@ namespace MenduhInsaat
             app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();

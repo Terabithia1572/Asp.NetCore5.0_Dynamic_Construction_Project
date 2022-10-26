@@ -14,5 +14,13 @@ namespace MenduhInsaat.Controllers
             return View();
         }
         
+        public IActionResult Test()
+        {
+            return View();
+        }
+        public PartialViewResult AdminNavbarPartial()
+        {
+            return PartialView();
+        }
     }
 }

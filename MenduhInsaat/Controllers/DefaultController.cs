@@ -27,5 +27,9 @@ namespace MenduhInsaat.Controllers
         {
             return PartialView();
         }
+        public PartialViewResult Footer()
+        {
+            return PartialView();
+        }
     }
 }
