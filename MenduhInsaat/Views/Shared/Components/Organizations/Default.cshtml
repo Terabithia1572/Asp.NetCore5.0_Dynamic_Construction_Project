@@ -13,33 +13,33 @@
             @foreach (var item in Model)
             {
 
-            
-            <div class="row event-item">
-                <div class="col-lg-6">
-                    <img src="@item.OrganizationImage" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-6 pt-4 pt-lg-0 content">
-                    <h3>@item.OrganizationTitle</h3>
-                    <div class="price">
-                        <p><span>%100 Kalite</span></p>
+
+                <div class="row event-item">
+                    <div class="col-lg-6">
+                        <img src="@item.OrganizationImage" class="img-fluid" alt="">
                     </div>
-                    <p class="font-italic">
-                        @item.OrganizationDetails1
-                       </p>
-                    <ul>
-                        <li><i class="icofont-check-circled"></i> @item.OrganizationShortDescription1</li>
-                        <li><i class="icofont-check-circled"></i> @item.OrganizationShortDescription1</li>
-                        <li><i class="icofont-check-circled"></i> @item.OrganizationShortDescription1</li>
-                    </ul>
-                    <p>
-                        @item.OrganizationDetails1
-                    </p>
+                    <div class="col-lg-6 pt-4 pt-lg-0 content">
+                        <h3>@item.OrganizationTitle</h3>
+                        <div class="price">
+                            <p><span>%100 Kalite</span></p>
+                        </div>
+                        <p class="font-italic">
+                            @item.OrganizationDetails1
+                        </p>
+                        <ul>
+                            <li><i class="icofont-check-circled"></i> @item.OrganizationShortDescription1</li>
+                            <li><i class="icofont-check-circled"></i> @item.OrganizationShortDescription1</li>
+                            <li><i class="icofont-check-circled"></i> @item.OrganizationShortDescription1</li>
+                        </ul>
+                        <p>
+                            @item.OrganizationDetails1
+                        </p>
+                    </div>
                 </div>
-            </div>
             }
 
 
         </div>
 
     </div>
-</section> 
+</section>

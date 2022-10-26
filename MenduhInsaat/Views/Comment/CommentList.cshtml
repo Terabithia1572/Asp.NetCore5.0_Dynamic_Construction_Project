@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment> 
+@{
+    ViewData["Title"] = "CommentList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Yorumlar Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Kullanıcı Adı</th>
+        <th>Yorum Başlığı</th>
+        <th>Tarih</th>
+        <th>Yorum Durumu</th>
+        <th>Yorum Görseli</th>
+        <th>Mesajı Sil</th>
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <th>@item.CommentID</th>
+    <td>@item.CommentUserName</td>
+    <td>@item.CommentTitle</td>
+    <td>@(((DateTime)item.CommentDate).ToString("dd.MM.yyyy"))</td>
+    <td>
+        @if (item.CommentStatus == true)
+        {
+            <span class="badge badge-success">Aktif</span>
+        }
+        else
+        {
+            <span class="badge badge-secondary">Pasif</span>
+        }
+    <td>@item.ImageUrl</td>
+    <td>
+        <a href="/Comment/DeleteComment/@item.CommentID" class="btn btn-danger">Sil</a>
+    </td>
+</tr>
+    }
+
+</table>
+
+

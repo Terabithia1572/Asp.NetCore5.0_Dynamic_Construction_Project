@@ -1,0 +1,43 @@
+﻿@model EntityLayer.Concrete.Organization
+
+@{
+    ViewData["Title"] = "EditOrganization";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Organizasyon Düzenleme Sayfası</h1>
+
+@using (Html.BeginForm("EditOrganization", "Organization", FormMethod.Post))
+{
+    @Html.Label("Organizasyon ID")
+    @Html.TextBoxFor(x => x.OrganizationID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Organizasyon Adı")
+    @Html.TextBoxFor(x => x.OrganizationTitle, new { @class = "form-control" })
+    <br />
+    @Html.Label("Organizasyon Açıklaması 1")
+    @Html.TextAreaFor(x => x.OrganizationDetails1, 15, 3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Organizasyon Açıklaması 2")
+    @Html.TextAreaFor(x => x.OrganizationDetails2, 15, 3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Organizasyon Kısa Açıklaması 1")
+    @Html.TextAreaFor(x => x.OrganizationShortDescription1, 5, 3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Organizasyon Kısa Açıklaması 2")
+    @Html.TextAreaFor(x => x.OrganizationShortDescription2, 5, 3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Organizasyon Kısa Açıklaması 3")
+    @Html.TextAreaFor(x => x.OrganizationShortDescription3, 5, 3, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Organizasyon Görseli")
+    @Html.TextBoxFor(x => x.OrganizationImage, new { @class = "form-control" })
+
+    <br />
+    <button class="btn btn-info">Ürün'ü Kaydet</button>
+
+}
+
+
+

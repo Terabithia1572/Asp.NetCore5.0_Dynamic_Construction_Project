@@ -46,5 +46,17 @@ namespace MenduhInsaat.Controllers
             commentManager.TAdd(comment);
             return RedirectToAction("Index","Product");
         }
+
+        public IActionResult CommentList()
+        {
+            var values = commentManager.GetList();
+            return View(values);
+        }
+        public IActionResult DeleteComment(int id)
+        {
+            var commentValue = commentManager.TGetByID(id);
+            commentManager.TDelete(commentValue);
+            return RedirectToAction("CommentList", "Comment");
+        }
     }
 }
