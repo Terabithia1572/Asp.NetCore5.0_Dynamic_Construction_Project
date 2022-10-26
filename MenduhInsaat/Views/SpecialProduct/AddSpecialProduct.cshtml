@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.SpecialProduct
+@{
+    ViewData["Title"] = "AddSpecialProduct";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Yeni Özel Ürün Girişi</h1>
+<br />
+
+@using (Html.BeginForm("AddSpecialProduct", "SpecialProduct", FormMethod.Post))
+{
+    @Html.Label(" Özel Ürün Adı")
+    @Html.TextBoxFor(x => x.SpecialProductTitle, new { @class = "form-control" })
+    <br />
+    @Html.Label("Özel Ürün Açıklaması")
+    @Html.TextAreaFor(x => x.SpecialProductContent, 15, 3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ürün Görseli")
+    @Html.TextBoxFor(x => x.SpecialProductImage, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Özel Ürün'ü Kaydet</button>
+
+}
