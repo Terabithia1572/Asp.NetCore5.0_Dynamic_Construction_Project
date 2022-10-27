@@ -38,17 +38,13 @@
         <div class="d-inline-block d-xl-none ml-md-0 ml-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
         <div class="main-menu">
             <ul class="js-clone-nav">
-                <li><a href="index.html">Home</a></li>
-                <li class="active"><a href="photos.html">Photos</a></li>
-                <li><a href="bio.html">Bio</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/Product/Index/">Ana Sayfaya Git</a></li>
+                <li class="active"><a href="/Image/AddImage/">Fotoğraf Yükle</a></li>
+                <li><a href="/Product/Index/#gallery">Fotoğraflara Git</a></li>
+                <li><a href="/Product/Index/#book-a-table">Yorumlara Git</a></li>
+                <li><a href="/Product/Index/#contact">İletişim Kısmına Git</a></li>
             </ul>
-            <ul class="social js-clone-nav">
-                <li><a href="#"><span class="icon-facebook"></span></a></li>
-                <li><a href="#"><span class="icon-twitter"></span></a></li>
-                <li><a href="#"><span class="icon-instagram"></span></a></li>
-            </ul>
+            
         </div>
     </header>
     <main class="main-content">
@@ -57,15 +53,15 @@
                 @foreach (var item in Model)
                 {
                     <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <a href="single.html" class="d-block photo-item">
+                        <div class="d-block photo-item">
                             <img src="@item.ImageUpload" alt="Image" class="img-fluid" data-pagespeed-url-hash="4024297802" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                             <div class="photo-text-more">
                                 <div class="photo-text-more">
-                                    <h3 class="heading">Photos Title Here</h3>
-                                    <span class="meta">42 Photos</span>
+                                    <a class="heading btn btn-danger" href="/Image/DeleteImage/@item.ImageID">Fotoğrafı Sil</a>                                    
+                                   @* <a class="meta btn btn-success" style="margin-top:10px" href="/Image/UpdateImage/@item.ImageID">Fotoğrafı Güncelle</a>*@
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 }
             </div>

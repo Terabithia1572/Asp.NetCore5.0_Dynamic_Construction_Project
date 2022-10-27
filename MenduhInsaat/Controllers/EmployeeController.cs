@@ -18,5 +18,12 @@ namespace MenduhInsaat.Controllers
             var values = employeeManager.GetList();
             return View(values);
         }
+
+        public IActionResult EmployeeList()
+        {
+            
+            var values = employeeManager.GetList();
+            return View(values);
+        }
     }
 }

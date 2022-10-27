@@ -16,5 +16,7 @@ namespace MenduhInsaat.ViewComponents
             var values = imageManager.GetList();
             return View(values);
         }
+
+        
     }
 }

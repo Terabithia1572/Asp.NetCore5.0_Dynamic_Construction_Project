@@ -9,7 +9,7 @@ namespace DataAccessLayer.Models.DTOs
 {
    public class ImageUploadModel
     {
-        public IFormFile ImageUrl { get; set; }
+        public IFormFile ImageUpload { get; set; }
         public bool ImageStatus { get; set; }
     }
 }
