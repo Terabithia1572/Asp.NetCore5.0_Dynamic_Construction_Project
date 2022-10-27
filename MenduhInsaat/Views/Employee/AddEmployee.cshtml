@@ -1,0 +1,58 @@
+﻿@model EntityLayer.Concrete.Employee
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<section id="book-a-table" class="book-a-table">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Yorum</h2>
+            <p>Bir Yorum Yap !</p>
+        </div>
+
+        <form method="post" class="php-email-form" asp-action="AddEmployee" asp-controller="Employee" role="form" data-aos="fade-up" data-aos-delay="100" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="col-lg-4 col-md-6 form-group">
+                    <input type="text" name="EmployeeName" class="form-control" id="name" placeholder="İsminiz" data-rule="minlen:3" data-msg="Lütfen en az 3 karakter girin">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group">
+                    <input type="text" name="EmployeeSurName" class="form-control" id="name" placeholder="Soyadınız" data-rule="minlen:3" data-msg="Lütfen en az 3 karakter girin">
+                    <div class="validate"></div>
+                </div>
+                <div class="upload ">
+                    <button type="button" class="btn-warning" style="color:white">
+                        <i class="fa fa-upload"></i> Profil Fotoğrafı Yükle
+                        <input type="file" name="EmployeeImage">
+                    </button>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group">
+                    <input type="text" name="EmployeeInstagram" class="form-control" id="name"  placeholder="İnstagram" data-rule="minlen:3" data-msg="Lütfen en az 3 karakter girin">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group">
+                    <input type="text" name="EmployeeFacebook" class="form-control" id="name"  placeholder="Facebook" data-rule="minlen:3" data-msg="Lütfen en az 3 karakter girin">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group">
+                    <input type="text" name="EmployeeTwitter" class="form-control" id="name" placeholder="Twitter" data-rule="minlen:3" data-msg="Lütfen en az 3 karakter girin">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group">
+                    <input type="text" name="EmployeeLinkedin" class="form-control" id="name" placeholder="Linkedin" data-rule="minlen:3" data-msg="Lütfen en az 3 karakter girin">
+                    <div class="validate"></div>
+                </div>
+                
+            </div>
+            
+            <div class="text-center"><button type="submit" class="btn btn-primary">Personel Ekle</button></div>
+        </form>
+    </div>
+</section>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="~/css/comment.css" rel="stylesheet" />
