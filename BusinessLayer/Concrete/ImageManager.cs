@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,31 +9,38 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class ImageManager : IImageService
+    public class ImageManager : IImageService       
     {
+        IImageDal _imageDal;
+
+        public ImageManager(IImageDal imageDal)
+        {
+            _imageDal = imageDal;
+        }
+
         public List<Image> GetList()
         {
-            throw new NotImplementedException();
+            return _imageDal.GetListAll();
         }
 
         public void TAdd(Image t)
         {
-            throw new NotImplementedException();
+            _imageDal.Insert(t);
         }
 
         public void TDelete(Image t)
         {
-            throw new NotImplementedException();
+            _imageDal.Delete(t);
         }
 
         public Image TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _imageDal.GetByID(id);
         }
 
         public void TUpdate(Image t)
         {
-            throw new NotImplementedException();
+            _imageDal.Update(t);
         }
     }
 }
