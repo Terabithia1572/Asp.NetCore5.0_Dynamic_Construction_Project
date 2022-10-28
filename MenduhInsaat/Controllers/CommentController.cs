@@ -58,6 +58,12 @@ namespace MenduhInsaat.Controllers
             commentManager.TDelete(commentValue);
             return RedirectToAction("CommentList", "Comment");
         }
-       
+        public IActionResult DeleteComment1(int id)
+        {
+            var commentValue = commentManager.TGetByID(id);
+            commentManager.TDelete(commentValue);
+            return RedirectToAction("Test", "DashBoard");
+        }
+
     }
 }

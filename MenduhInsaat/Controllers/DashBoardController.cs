@@ -27,7 +27,7 @@ namespace MenduhInsaat.Controllers
             var toplamresimSayisi = imageManager.GetList().Count();
             ViewBag.ToplamResimSayisi = toplamresimSayisi;
             var toplamYorumSayisi = commentManager.GetList().Count();
-            ViewBag.ToplamYorumSayisi = toplamresimSayisi;
+            ViewBag.ToplamYorumSayisi = toplamYorumSayisi;
 
             return View();
         }
