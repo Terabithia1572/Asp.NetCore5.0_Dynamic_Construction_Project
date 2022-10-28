@@ -21,6 +21,7 @@ namespace MenduhInsaat.Controllers
         
         public IActionResult Test()
         {
+           
             var toplamurunSayisi = productManager.GetList().Count();
             ViewBag.ToplamUrunSayisi = toplamurunSayisi;
             var toplamresimSayisi = imageManager.GetList().Count();

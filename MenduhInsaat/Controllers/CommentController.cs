@@ -58,5 +58,6 @@ namespace MenduhInsaat.Controllers
             commentManager.TDelete(commentValue);
             return RedirectToAction("CommentList", "Comment");
         }
+       
     }
 }
