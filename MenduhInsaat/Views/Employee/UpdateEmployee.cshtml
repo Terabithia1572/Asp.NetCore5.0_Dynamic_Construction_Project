@@ -1,0 +1,45 @@
+﻿@model EntityLayer.Concrete.Employee
+@{
+    ViewData["Title"] = "UpdateEmployee";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Ürün Düzenleme Sayfası</h1>
+@using (Html.BeginForm("UpdateEmployee", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Label("Personel ID")
+    @Html.TextBoxFor(x => x.EmployeeID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Adı")
+    @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Soyadı")
+    @Html.TextAreaFor(x => x.EmployeeSurName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel İnstagram")
+    @Html.TextAreaFor(x => x.EmployeeInstagram, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Personel Twitter")
+    @Html.TextAreaFor(x => x.EmployeeTwitter, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Personel Facebook")
+    @Html.TextAreaFor(x => x.EmployeeFacebook, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Personel Linkedin")
+    @Html.TextAreaFor(x => x.EmployeeLinkedin, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Fotoğrafı")
+    @Html.TextAreaFor(x => x.EmployeeImage, new { @class = "form-control" })
+
+    <br />
+    <button class="btn btn-info">Personel'i Kaydet</button>
+
+}
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="~/css/comment.css" rel="stylesheet" />
+

@@ -29,6 +29,7 @@
     <Folder Include="wwwroot\ImageFolder\" />
     <Folder Include="wwwroot\Login\fonts\" />
     <Folder Include="wwwroot\EmployeeImageFolder\" />
+    <Folder Include="wwwroot\UpdateUploadImage\" />
     <Folder Include="wwwroot\WorkImage\" />
   </ItemGroup>
 

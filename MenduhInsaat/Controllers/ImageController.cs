@@ -62,21 +62,21 @@ namespace MenduhInsaat.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateImage(ImageUploadModel imageUploadModel)
+        public IActionResult UpdateImage(ImageUploadUpdated imageUploadUpdated)
         {
             Image image = new Image();
 
-            if (imageUploadModel.ImageUpload != null)
+            if (imageUploadUpdated.ImageUpload != null)
             {
-                var extension = Path.GetExtension(imageUploadModel.ImageUpload.FileName);
+                var extension = Path.GetExtension(imageUploadUpdated.ImageUpload.FileName);
                 var newimageName = Guid.NewGuid() + extension;
-                var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/WorkImage/", newimageName);
+                var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UpdateUploadImage/", newimageName);
                 var stream = new FileStream(location, FileMode.Create);
-                imageUploadModel.ImageUpload.CopyTo(stream);
-                image.ImageUpload = "/WorkImage/" + newimageName;
+                imageUploadUpdated.ImageUpload.CopyTo(stream);
+                image.ImageUpload = "/UpdateUploadImage/" + newimageName;
             }
 
-            image.ImageStatus = true;
+            image.ImageStatus = imageUploadUpdated.ImageStatus;            
             imageManager.TUpdate(image);
             return RedirectToAction("Index", "Image");
         }

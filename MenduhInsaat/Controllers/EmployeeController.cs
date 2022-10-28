@@ -68,6 +68,23 @@ namespace MenduhInsaat.Controllers
             return RedirectToAction("EmployeeList","Employee");
         }
 
+        [HttpGet]
+        public IActionResult UpdateEmployee(int id)
+        {
+            var values = employeeManager.TGetByID(id);
+            ViewBag.v1 = values;
+            return View(values);
+
+        }
+
+        [HttpPost]
+
+        public IActionResult UpdateEmployee(Employee employee)
+        {
+            employeeManager.TUpdate(employee);
+            return RedirectToAction("EmployeeList","Employee");
+        }
+        
         
     }
 }
