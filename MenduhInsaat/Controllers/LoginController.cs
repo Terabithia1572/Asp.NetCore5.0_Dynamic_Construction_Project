@@ -15,6 +15,7 @@ namespace MenduhInsaat.Controllers
 {
     [AllowAnonymous]
     public class LoginController : Controller
+
     {
         public IActionResult Index()
         {
@@ -57,6 +58,11 @@ namespace MenduhInsaat.Controllers
             //    return View();
             //}
 
+        }
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Login");
         }
 
     }   
