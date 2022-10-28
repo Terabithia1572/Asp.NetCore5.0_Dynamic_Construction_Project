@@ -10,15 +10,17 @@ using System.Threading.Tasks;
 
 namespace MenduhInsaat.Controllers
 {
-    [AllowAnonymous]
+   
     public class OrganizationController : Controller
     {
         OrganizationManager organizationManager = new OrganizationManager(new EfOrganizationRepository());
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var values = organizationManager.GetList();
             return View(values);
         }
+       
         public IActionResult OrganizationList()
         {
             var values = organizationManager.GetList();

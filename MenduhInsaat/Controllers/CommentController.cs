@@ -15,16 +15,17 @@ using System.Web;
 
 namespace MenduhInsaat.Controllers
 {
-    [AllowAnonymous]
+    
     public class CommentController : Controller
     {
         CommentManager commentManager = new CommentManager(new EfCommentRepository());
-
+        [AllowAnonymous]
         [HttpGet]
         public PartialViewResult AddComment()
         {
             return PartialView();
         }
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult AddComment(FileUploadModel fileUploadModel)
         {
@@ -46,7 +47,7 @@ namespace MenduhInsaat.Controllers
             commentManager.TAdd(comment);
             return RedirectToAction("Index","Product");
         }
-
+        
         public IActionResult CommentList()
         {
             var values = commentManager.GetList();

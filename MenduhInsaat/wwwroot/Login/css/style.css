@@ -1774,7 +1774,7 @@ textarea.form-control {
 .was-validated .form-control:valid, .form-control.is-valid {
     border-color: #28a745;
     padding-right: calc(1.5em + 0.75rem);
-    background-image: url("https://drive.google.com/file/d/15mb1C-QSQTHsHoUClscJomQ_tAQmP1FJ/");
+    background-image: url("../../Login/images/menduhinsaatlogin.jpg");
     background-repeat: no-repeat;
     background-position: center right calc(0.375em + 0.1875rem);
     background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
@@ -1795,7 +1795,7 @@ textarea.form-control {
 .was-validated .custom-select:valid, .custom-select.is-valid {
     border-color: #28a745;
     padding-right: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
-    background: url("https://drive.google.com/file/d/15mb1C-QSQTHsHoUClscJomQ_tAQmP1FJ/")
+    background: url("../../Login/images/menduhinsaatlogin.jpg")
 }
   .was-validated .custom-select:valid:focus, .custom-select.is-valid:focus {
     border-color: #28a745;
@@ -1877,7 +1877,7 @@ textarea.form-control {
 .was-validated .form-control:invalid, .form-control.is-invalid {
     border-color: #dc3545;
     padding-right: calc(1.5em + 0.75rem);
-    background-image: url("https://drive.google.com/file/d/15mb1C-QSQTHsHoUClscJomQ_tAQmP1FJ/");
+    background-image: url("../../Login/images/menduhinsaatlogin.jpg");
     background-repeat: no-repeat;
     background-position: center right calc(0.375em + 0.1875rem);
     background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
@@ -1898,7 +1898,7 @@ textarea.form-control {
 .was-validated .custom-select:invalid, .custom-select.is-invalid {
     border-color: #dc3545;
     padding-right: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
-    background: url("https://drive.google.com/file/d/15mb1C-QSQTHsHoUClscJomQ_tAQmP1FJ/")
+    background: url("../../Login/images/menduhinsaatlogin.jpg")
 }
   .was-validated .custom-select:invalid:focus, .custom-select.is-invalid:focus {
     border-color: #dc3545;
@@ -3057,7 +3057,7 @@ input[type="button"].btn-block {
   border-radius: 0.25rem; }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
-    background-image: url("https://drive.google.com/file/d/15mb1C-QSQTHsHoUClscJomQ_tAQmP1FJ/");
+    background-image: url("../../Login/images/menduhinsaatlogin.jpg");
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
@@ -3065,7 +3065,7 @@ input[type="button"].btn-block {
   background-color: #007bff; }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
-    background-image: url("https://drive.google.com/file/d/15mb1C-QSQTHsHoUClscJomQ_tAQmP1FJ/");
+    background-image: url("../../Login/images/menduhinsaatlogin.jpg");
 }
 
 .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
@@ -3078,7 +3078,7 @@ input[type="button"].btn-block {
   border-radius: 50%; }
 
 .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
-    background-image: url("https://drive.google.com/file/d/15mb1C-QSQTHsHoUClscJomQ_tAQmP1FJ/");
+    background-image: url("../../Login/images/menduhinsaatlogin.jpg");
 }
 
 .custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {
@@ -3733,7 +3733,7 @@ input[type="button"].btn-block {
   border-color: rgba(0, 0, 0, 0.1); }
 
 .navbar-light .navbar-toggler-icon {
-    background-image: url("https://drive.google.com/file/d/15mb1C-QSQTHsHoUClscJomQ_tAQmP1FJ/");
+    background-image: url("../../Login/images/menduhinsaatlogin.jpg");
 }
 
 .navbar-light .navbar-text {
@@ -3766,7 +3766,7 @@ input[type="button"].btn-block {
   border-color: rgba(255, 255, 255, 0.1); }
 
 .navbar-dark .navbar-toggler-icon {
-    background-image: url("https://drive.google.com/file/d/15mb1C-QSQTHsHoUClscJomQ_tAQmP1FJ/");
+    background-image: url("../../Login/images/menduhinsaatlogin.jpg");
 }
 
 .navbar-dark .navbar-text {
@@ -5224,11 +5224,11 @@ a.close.disabled {
   background: no-repeat 50% / 100% 100%; }
 
 .carousel-control-prev-icon {
-    background-image: url("https://drive.google.com/file/d/15mb1C-QSQTHsHoUClscJomQ_tAQmP1FJ/");
+    background-image: url("../../Login/images/menduhinsaatlogin.jpg");
 }
 
 .carousel-control-next-icon {
-    background-image: url("https://drive.google.com/file/d/15mb1C-QSQTHsHoUClscJomQ_tAQmP1FJ/"
+    background-image: url("../../Login/images/menduhinsaatlogin.jpg"
         ); } .carousel-indicators {
   position: absolute;
   right: 0;

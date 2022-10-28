@@ -11,16 +11,18 @@ using System.Threading.Tasks;
 
 namespace MenduhInsaat.Controllers
 {
-    [AllowAnonymous]
+    
     public class ProductController : Controller
     {
         ProductManager productManager = new ProductManager(new EfProductRepository());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var values = productManager.GetList();
             return View(values);
         }
+        [AllowAnonymous]
         public IActionResult ProductList()
         {
             var values = productManager.GetList();

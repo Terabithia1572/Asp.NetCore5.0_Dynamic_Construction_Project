@@ -10,18 +10,19 @@ using System.Threading.Tasks;
 
 namespace MenduhInsaat.Controllers
 {
-    [AllowAnonymous]
+    
     public class SpecialProductController : Controller
     {
 
 
         SpecialProductManager specialProductManager = new SpecialProductManager(new EfSpecialProductRepository());
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var values = specialProductManager.GetList();
             return View(values);
         }
-
+       
         public IActionResult SpecialProductList()
         {
             var values = specialProductManager.GetList();

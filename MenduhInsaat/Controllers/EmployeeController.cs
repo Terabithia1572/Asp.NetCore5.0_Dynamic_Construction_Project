@@ -12,10 +12,11 @@ using System.Threading.Tasks;
 
 namespace MenduhInsaat.Controllers
 {
-    [AllowAnonymous]
+    
     public class EmployeeController : Controller
     {
         EmployeeManager employeeManager = new EmployeeManager(new EfEmployeeRepository());
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var values = employeeManager.GetList();
