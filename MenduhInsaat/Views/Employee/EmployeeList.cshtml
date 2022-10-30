@@ -52,94 +52,138 @@
 
 <body>
 
-                <!-- Grid View -->
-                
-                    <div class="row">
-                        @foreach (var item in Model)
-                        {
+    <!-- Grid View -->
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
 
 
-                        <div class="col-md-6 col-xl-4 col-12">
-                            <!-- Card Component -->
-                            <div class="card pmd-card user-info-card">
-                                <!-- Card Header -->
-                                <div class="card-header pmd-card-border d-flex flex-row align-items-center">
-                                    <a class="pmd-avatar-list-img" href="javascript:void(0);">
-                                        <img src="@item.EmployeeImage" width="40" height="40" alt="Profile Picture">
-                                    </a>
-                                    <div class="media-body">
-                                        <h3 class="card-title">@item.EmployeeName @item.EmployeeSurName</h3>
-                                        <p class="card-subtitle">Kurucu</p>
-                                    </div>
-                                    <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
-                                        <a href="javascript:void(0);" class="pmd-btn-fab btn-dark pmd-btn-flat btn btn-sm" data-toggle="dropdown" aria-expanded="true"><i class="material-icons pmd-icon-sm">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item d-flex flex-row align-items-center" href="/Employee/UpdateEmployee/@item.EmployeeID/"><i class="material-icons md-dark pmd-icon-sm mr-3">edit</i><span class="media-body">Düzenle</span></a>
-                                            <a href="/Employee/DeleteEmployee/@item.EmployeeID" title="Delete" class="dropdown-item d-flex flex-row align-items-center" data-toggle="modal" data-target="#delete_employee_modal"><i class="material-icons md-dark pmd-icon-sm mr-3">delete</i><span class="media-body">Sil</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- List Group Component -->
-                                <ul class="list-group pmd-list">
-                                    <li class="list-group-item d-flex flex-row">
-                                        <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">person_outline</i>
-                                        <div class="media-body">
-                                            <label class="pmd-list-subtitle">Personel Kimliği</label>
-                                            <p class="pmd-list-title">@item.EmployeeID</p>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item d-flex flex-row">
-                                        <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">visibility</i>
-                                        <div class="media-body">
-                                            <label class="pmd-list-subtitle">İnstagram</label>
-                                            <p class="pmd-list-title"><a href="@item.EmployeeInstagram">@item.EmployeeInstagram</a></p>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item d-flex flex-row">
-                                        <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">touch_app</i>
-                                        <div class="media-body">
-                                            <label class="pmd-list-subtitle">Twitter</label>
-                                            <p class="pmd-list-title"><a href="@item.EmployeeTwitter">@item.EmployeeTwitter</a></p>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item d-flex flex-row">
-                                        <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">thumb_up</i>
-                                        <div class="media-body">
-                                            <label class="pmd-list-subtitle">Facebook</label>
-                                            <p class="pmd-list-title"><a href="@item.EmployeeFacebook">@item.EmployeeFacebook</a></p>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item d-flex flex-row">
-                                        <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">mail_outline</i>
-                                        <div class="media-body">
-                                            <label class="pmd-list-subtitle">Linkedin</label>
-                                            <p class="pmd-list-title"><a href="@item.EmployeeLinkedin">@item.EmployeeLinkedin</a></p>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item d-flex flex-row">
-                                        <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">people_outline</i>
-                                        <div class="media-body">
-                                            <label class="pmd-list-subtitle">Durum</label>
-
-                                            <p class="pmd-list-title">@item.EmployeeStatus</p>
-                                        </div>
-                                    </li>
-                                    
-                                </ul><!-- List Group Component End -->
-                                <!-- Card Footer -->
-                                <div class="card-footer pmd-card-border">
-                                    <a title="Ekle"  href="/Employee/AddEmployee/" class="btn btn-success" style="border-radius:10px">Ekle</a>
-                                    <a title="Sil"  href="/Employee/DeleteEmployee/@item.EmployeeID" class="btn btn-danger" style="border-radius:10px">Sil</a>
-                                    <a title="Güncelle"  href="/Employee/UpdateEmployee/@item.EmployeeID" class="btn btn-primary" style="border-radius:10px">Güncelle</a>
-                                </div>
-                            </div>
-                            <!-- Card Component End -->
+            <div class="col-md-6 col-xl-4 col-12">
+                <!-- Card Component -->
+                <div class="card pmd-card user-info-card">
+                    <!-- Card Header -->
+                    <div class="card-header pmd-card-border d-flex flex-row align-items-center">
+                        <a class="pmd-avatar-list-img" href="javascript:void(0);">
+                            <img src="@item.EmployeeImage" width="40" height="40" alt="Profile Picture">
+                        </a>
+                        <div class="media-body">
+                            <h3 class="card-title">@item.EmployeeName @item.EmployeeSurName</h3>
+                            <p class="card-subtitle">Kurucu</p>
                         </div>
-                        }
+                        <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
+                            <a href="javascript:void(0);" class="pmd-btn-fab btn-dark pmd-btn-flat btn btn-sm" data-toggle="dropdown" aria-expanded="true"><i class="material-icons pmd-icon-sm">more_vert</i></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item d-flex flex-row align-items-center" href="/Employee/UpdateEmployee/@item.EmployeeID/"><i class="material-icons md-dark pmd-icon-sm mr-3">edit</i><span class="media-body">Düzenle</span></a>
+                                <a href="/Employee/DeleteEmployee/@item.EmployeeID" title="Delete" class="dropdown-item d-flex flex-row align-items-center" data-toggle="modal" data-target="#delete_employee_modal"><i class="material-icons md-dark pmd-icon-sm mr-3">delete</i><span class="media-body">Sil</span></a>
+                            </div>
+                        </div>
                     </div>
-                
+
+                    <!-- List Group Component -->
+                    <ul class="list-group pmd-list">
+                        <li class="list-group-item d-flex flex-row">
+                            <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">person_outline</i>
+                            <div class="media-body">
+                                <label class="pmd-list-subtitle">Personel Kimliği</label>
+                                <p class="pmd-list-title">@item.EmployeeID</p>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item d-flex flex-row">
+                            <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">visibility</i>
+                            <div class="media-body">
+                                <label class="pmd-list-subtitle">İnstagram</label>
+                                <p class="pmd-list-title">
+                                    <a href="@item.EmployeeInstagram">
+                                        @if (item.EmployeeInstagram != null && item.EmployeeInstagram.Length > 35)
+                                        {
+                                            @item.EmployeeInstagram.Substring(26)
+                                        }
+                                        else
+                                        {
+                                            @item.EmployeeInstagram
+                                        }
+                                    </a>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex flex-row">
+                            <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">touch_app</i>
+                            <div class="media-body">
+                                <label class="pmd-list-subtitle">Twitter</label>
+                                <p class="pmd-list-title">
+                                    <a href="@item.EmployeeTwitter">
+                                        @if (item.EmployeeTwitter != null && item.EmployeeTwitter.Length > 35)
+                                        {
+                                            @item.EmployeeTwitter.Substring(26)
+                                        }
+                                        else
+                                        {
+                                            @item.EmployeeTwitter
+                                        }
+                                    </a>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex flex-row">
+                        <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">thumb_up</i>
+                        <div class="media-body">
+                            <label class="pmd-list-subtitle">Facebook</label>
+                            <p class="pmd-list-title">
+                                <a href="@item.EmployeeFacebook">
+                                    @if (item.EmployeeFacebook != null && item.EmployeeFacebook.Length > 30)
+                                    {
+                                        @item.EmployeeFacebook.Substring(25)
+                                    }
+                                    else
+                                    {
+                                        @item.EmployeeFacebook
+                                    }
+                                </a>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex flex-row">
+                        <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">mail_outline</i>
+                        <div class="media-body">
+                            <label class="pmd-list-subtitle">Linkedin</label>
+                            <p class="pmd-list-title">
+                                <a href="@item.EmployeeLinkedin">
+                                    @if (item.EmployeeLinkedin != null && item.EmployeeLinkedin.Length > 35)
+                                    {
+                                        @item.EmployeeLinkedin.Substring(26)
+                                    }
+                                    else
+                                    {
+                                        @item.EmployeeLinkedin
+                                    }
+                                </a>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex flex-row">
+                        <i class="material-icons pmd-list-icon align-self-center pmd-md md-dark">people_outline</i>
+                        <div class="media-body">
+                            <label class="pmd-list-subtitle">Durum</label>
+
+                            <p class="pmd-list-title">@item.EmployeeStatus</p>
+                        </div>
+                    </li>
+
+                </ul><!-- List Group Component End -->
+                <!-- Card Footer -->
+                <div class="card-footer pmd-card-border">
+                    <a title="Ekle" href="/Employee/AddEmployee/" class="btn btn-success" style="border-radius:10px">Ekle</a>
+                    <a title="Sil" href="/Employee/DeleteEmployee/@item.EmployeeID" class="btn btn-danger" style="border-radius:10px">Sil</a>
+                    <a title="Güncelle" href="/Employee/UpdateEmployee/@item.EmployeeID" class="btn btn-primary" style="border-radius:10px">Güncelle</a>
+                </div>
+            </div>
+            <!-- Card Component End -->
+        </div>
+    }
+    </div>
+
     <script src="~/ExtreTheme/themes/js/bootstrap4-admin-compress.min.js"></script>
     <!-- /build -->
 
