@@ -40,6 +40,28 @@ namespace MenduhInsaat.Controllers
             var values = cm.GetList();
             return View(values);
         }
+        public IActionResult DeleteCategory(int id)
+        {
+            var values = cm.TGetByID(id);
+            cm.TDelete(values);
+            return RedirectToAction("CategoryList","Category");
+        }
+        [HttpGet]
+        public IActionResult UpdateCategory(int id)
+        {
+            var values = cm.TGetByID(id);
+                return View(values);
+        }
+        [HttpPost]
+
+        public IActionResult UpdateCategory(Category category)
+        {
+            category.CategoryStatus = true;
+            cm.TUpdate(category);
+
+            return RedirectToAction("CategoryList", "Category");
+
+        }
 
     }
 }

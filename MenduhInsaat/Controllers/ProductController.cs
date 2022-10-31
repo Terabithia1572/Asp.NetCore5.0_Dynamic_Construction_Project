@@ -43,8 +43,14 @@ namespace MenduhInsaat.Controllers
         [HttpPost]
         public IActionResult AddProduct(Product product)
         {
+            string[] rastgeleFiltre = new string[3];
+            rastgeleFiltre[0] = "filter-starters";
+            rastgeleFiltre[1] = "filter-salads";
+            rastgeleFiltre[2] = "filter-specialty";
+            Random r = new Random();
+            int sayi = r.Next(0, 3);
             product.ProductStatus = true;
-            product.ProductFilter = "filter-salads";
+            product.ProductFilter = rastgeleFiltre[sayi];
             productManager.TAdd(product);
             return RedirectToAction("ProductList", "Product");
         }
@@ -80,8 +86,14 @@ namespace MenduhInsaat.Controllers
                                                        Text = x.CategoryName,
                                                        Value = x.CategoryID.ToString()
                                                    }).ToList();
-            product.ProductFilter = "filter-salads";
+            string[] rastgeleFiltre = new string[3];
+            rastgeleFiltre[0] = "filter-starters";
+            rastgeleFiltre[1] = "filter-salads";
+            rastgeleFiltre[2] = "filter-specialty";
+            Random r = new Random();
+            int sayi = r.Next(0, 3);
             product.ProductStatus = true;
+            product.ProductFilter = rastgeleFiltre[sayi];
             productManager.TUpdate(product);
             return RedirectToAction("ProductList", "Product");
         }
