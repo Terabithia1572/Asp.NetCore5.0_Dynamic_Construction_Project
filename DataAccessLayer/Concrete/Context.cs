@@ -12,7 +12,7 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=.; database=ConstructionDBV1.0;integrated security=true");
+            optionsBuilder.UseSqlServer("workstation id=ConstructionDBV.mssql.somee.com;packet size=4096;user id=Terabithia15721_SQLLogin_1;pwd=s7ec8ia2fl;data source=ConstructionDBV.mssql.somee.com;persist security info=False;initial catalog=ConstructionDBV");
 
         }
         public DbSet<Admin> Admins { get; set; }
