@@ -1,3 +1,4 @@
+using DNTCaptcha.Core;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -29,6 +30,9 @@ namespace MenduhInsaat
 
             services.AddControllersWithViews();
 
+            services.AddDNTCaptcha(options=>
+            options.UseCookieStorageProvider()
+            .ShowThousandsSeparators(false).WithEncryptionKey("123456"));
             services.AddSession(); 
 
 

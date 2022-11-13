@@ -1,11 +1,13 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Models.DTOs;
+using DNTCaptcha.Core;
 using EntityLayer.Concrete;
 using MenduhInsaat.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +20,9 @@ namespace MenduhInsaat.Controllers
     
     public class CommentController : Controller
     {
+        private readonly IDNTCaptchaValidatorService _validatorService;
+        private readonly DNTCaptchaOptions _captchaOptions;
+
         CommentManager commentManager = new CommentManager(new EfCommentRepository());
         [AllowAnonymous]
         [HttpGet]
@@ -27,9 +32,18 @@ namespace MenduhInsaat.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult AddComment(FileUploadModel fileUploadModel)
         {
             Comment comment = new Comment();
+            if (ModelState.IsValid) 
+            {
+                if(!_validatorService.HasRequestValidCaptchaEntry(Language.Turkish,DisplayMode.ShowDigits))
+                {
+                    this.ModelState.AddModelError(_captchaOptions.CaptchaComponent.CaptchaInputName, "Lütfen Doğrulama Kodunu Girin.");
+                    return RedirectToAction("Index", "Product");
+                }
+            }
             if (fileUploadModel.ImageUrl !=null)
             {
                 var extension = Path.GetExtension(fileUploadModel.ImageUrl.FileName);
@@ -64,6 +78,12 @@ namespace MenduhInsaat.Controllers
             var commentValue = commentManager.TGetByID(id);
             commentManager.TDelete(commentValue);
             return RedirectToAction("Test", "DashBoard");
+        }
+        public CommentController(IDNTCaptchaValidatorService validatorService, IOptions<DNTCaptchaOptions> options)
+        {
+            _validatorService = validatorService;
+
+            _captchaOptions = options == null ? throw new ArgumentNullException(nameof(options)) : options.Value;
         }
 
     }

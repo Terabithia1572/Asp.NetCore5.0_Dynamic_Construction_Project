@@ -18,9 +18,27 @@
                 </div>
                 <div class="upload ">
                     <button type="button" class="btn-warning" style="color:white">
-                        <i class="fa fa-upload" ></i> Profil Fotoğrafı Yükle
+                        <i class="fa fa-upload"></i> Profil Fotoğrafı Yükle
                         <input type="file" name="ImageUrl">
                     </button>
+                </div>
+                <div class="form-group mb-3 col-lg-4 col-md-6">
+                    <dnt-captcha asp-captcha-generator-max="999999" asp-captcha-generator-min="111111" asp-captcha-generator-language="Turkish"
+                                 asp-captcha-generator-display-mode="ShowDigits"
+                                 
+                                 asp-placeholder="Resimdeki Rakamları Doğrulayın"
+                                 asp-validation-error-message="Lütfen Doğru Güvenlik Kodlarını Girin"
+                                 asp-font-name="Tahoma"
+                                 asp-font-size="20"
+                                 asp-fore-color="#333333"
+                                 asp-back-color="#ccc"
+                                 asp-text-box-class="text-box form-control"
+                                 asp-text-box-template="<span class='input-group-prepend'><span class='form-group-text'></span></span>{0}"
+                                 asp-validation-message-class="text-danger"
+                                 asp-refresh-button-class="fas fa-redo btn-sm"
+                                 asp-use-noise="false">
+
+                    </dnt-captcha>
                 </div>
             </div>
             <div class="form-group">
@@ -35,5 +53,10 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="~/css/comment.css" rel="stylesheet" />
+<script src="~/js/site.js"></script>
+<script src="~/Login/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<script src="~/Admin/assets/js/jquery.unobtrusive-ajax.js"></script>
 
 
