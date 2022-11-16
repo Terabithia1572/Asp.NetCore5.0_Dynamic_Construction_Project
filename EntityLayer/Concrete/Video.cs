@@ -12,5 +12,6 @@ namespace EntityLayer.Concrete
         [Key]
         public int VideoID { get; set; }
         public string VideoLink { get; set; }
+        public bool VideoStatus { get; set; }
     }
 }

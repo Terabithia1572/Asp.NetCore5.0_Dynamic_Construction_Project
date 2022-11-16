@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.Video
+@{
+    ViewData["Title"] = "UpdateVideo";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Video Güncelleme</h1>
+@using (Html.BeginForm("UpdateVideo", "Video", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Label("Video ID")
+    @Html.TextBoxFor(x => x.VideoID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Video Linki")
+    @Html.TextBoxFor(x => x.VideoLink, new { @class = "form-control" })
+
+
+    <br />
+    <button class="btn btn-info">Video Link'ini Kaydet</button>
+
+}
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="~/css/comment.css" rel="stylesheet" />
+
+
