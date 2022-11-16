@@ -1,4 +1,7 @@
-﻿<section id="hero" class="d-flex align-items-center mainpage">
+﻿@using EntityLayer.Concrete
+@model List<Video>
+
+<section id="hero" class="d-flex align-items-center mainpage">
     <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
         <div class="row">
             <div class="col-lg-8">
@@ -13,7 +16,10 @@
                 </div>
             </div>
             <div class="col-lg-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="200">
-                <a href="#" class="venobox play-btn" data-vbtype="video" data-autoplay="true"></a>
+                @foreach (var item in Model)
+                {
+                <a href="@item.VideoLink" class="venobox play-btn" data-vbtype="video" data-autoplay="true"></a>
+                }
             </div>
 
         </div>
