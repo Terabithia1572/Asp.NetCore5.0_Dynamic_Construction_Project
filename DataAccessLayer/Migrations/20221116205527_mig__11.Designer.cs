@@ -4,14 +4,16 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20221116205527_mig__11")]
+    partial class mig__11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -271,21 +273,6 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("SpecialProductID");
 
                     b.ToTable("SpecialProducts");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Video", b =>
-                {
-                    b.Property<int>("VideoID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("VideoLink")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("VideoID");
-
-                    b.ToTable("Videos");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Product", b =>

@@ -24,7 +24,8 @@ namespace DataAccessLayer.Concrete
         public DbSet<Product> Products { get; set; }
         public DbSet<SpecialProduct> SpecialProducts { get; set; }
         public DbSet<Organization> Organizations { get; set; }
-       
+        public DbSet<Video> Videos { get; set; }
+
 
     }
 }
