@@ -88,6 +88,7 @@ namespace MenduhInsaat.Controllers
             {
                 employee.EmployeeImage = AddImage.ImageAdd(imagefile, AddImage.StaticProfileImageLocation());
             }
+            employee.EmployeeStatus = true;
             employeeManager.TUpdate(employee);
             return RedirectToAction("EmployeeList","Employee");
         }
