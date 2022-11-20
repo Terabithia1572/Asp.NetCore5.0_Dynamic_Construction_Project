@@ -2,7 +2,9 @@
 using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Models.DTOs;
 using EntityLayer.Concrete;
+using MenduhInsaat.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -80,8 +82,12 @@ namespace MenduhInsaat.Controllers
 
         [HttpPost]
 
-        public IActionResult UpdateEmployee(Employee employee)
+        public IActionResult UpdateEmployee(Employee employee,IFormFile imagefile)
         {
+            if(imagefile !=null)
+            {
+                employee.EmployeeImage = AddImage.ImageAdd(imagefile, AddImage.StaticProfileImageLocation());
+            }
             employeeManager.TUpdate(employee);
             return RedirectToAction("EmployeeList","Employee");
         }
