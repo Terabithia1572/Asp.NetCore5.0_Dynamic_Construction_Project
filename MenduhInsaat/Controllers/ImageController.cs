@@ -66,7 +66,6 @@ namespace MenduhInsaat.Controllers
         [HttpPost]
         public IActionResult UpdateImage(Image image,IFormFile imagefile)
         {
-
             if (imagefile != null)
             {
                 image.ImageUpload = AddImagePage.ImageAdd(imagefile, AddImagePage.StaticProfileImageLocation());
