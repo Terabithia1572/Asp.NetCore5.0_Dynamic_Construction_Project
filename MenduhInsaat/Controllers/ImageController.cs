@@ -3,6 +3,8 @@ using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Models.DTOs;
 using EntityLayer.Concrete;
+using MenduhInsaat.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -62,21 +64,14 @@ namespace MenduhInsaat.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateImage(ImageUploadUpdated imageUploadUpdated)
+        public IActionResult UpdateImage(Image image,IFormFile imagefile)
         {
-            Image image = new Image();
 
-            if (imageUploadUpdated.ImageUpload != null)
+            if (imagefile != null)
             {
-                var extension = Path.GetExtension(imageUploadUpdated.ImageUpload.FileName);
-                var newimageName = Guid.NewGuid() + extension;
-                var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UpdateUploadImage/", newimageName);
-                var stream = new FileStream(location, FileMode.Create);
-                imageUploadUpdated.ImageUpload.CopyTo(stream);
-                image.ImageUpload = "/UpdateUploadImage/" + newimageName;
+                image.ImageUpload = AddImagePage.ImageAdd(imagefile, AddImagePage.StaticProfileImageLocation());
             }
-
-            image.ImageStatus = imageUploadUpdated.ImageStatus;            
+            image.ImageStatus = true;         
             imageManager.TUpdate(image);
             return RedirectToAction("Index", "Image");
         }

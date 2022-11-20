@@ -1,35 +1,62 @@
-﻿
+﻿@model EntityLayer.Concrete.Image
 @{
     ViewData["Title"] = "UpdateImage";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<section id="book-a-table" class="book-a-table">
-    <div class="container" data-aos="fade-up">
+<h1>Resim Güncelleme Sayfası</h1>
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Resim Güncelleme</h4>
+            <br />
+            <form class="form-group" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Güncellenecek Görsel</label>
+                    <input type="file" name="imageFile" class="form-control-file">
+                    <br />
+                    <label>Yada Link Yapıştır</label>
+                    @Html.TextBoxFor(x => x.ImageUpload, new { @class = "form-control", @placeholder = "ImageUrl" })
+                    @Html.ValidationMessageFor(x => x.ImageUpload, "", new { @class = "text-danger" })
+                </div>
 
-        <div class="section-title">
-            <h2>Fotoğraf</h2>
-            <p>Bir Çalışma Fotoğrafı Yükle !</p>
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
+                <button class="btn btn-light">İptal</button>
+            </form>
         </div>
+    </div>
+</div>
 
-        <form method="post" class="php-email-form" asp-action="UpdateImage" asp-controller="Image" role="form" data-aos="fade-up" data-aos-delay="100" enctype="multipart/form-data">
-            <div class="form-row">
-                <div class="upload ">
-                    <button type="button" class="btn-warning" style="color:white">
-                        <i class="fa fa-upload"></i> Fotoğraf Seç
-                        <input type="file" name="ImageUpload">
-                    </button>
+
+
+@*<section id="book-a-table" class="book-a-table">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Fotoğraf</h2>
+                <p>Bir Çalışma Fotoğrafı Yükle !</p>
+            </div>
+
+            <form method="post" class="php-email-form" asp-action="UpdateImage" asp-controller="Image" role="form" data-aos="fade-up" data-aos-delay="100" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="upload ">
+                        <button type="button" class="btn-warning" style="color:white">
+                            <i class="fa fa-upload"></i> Fotoğraf Seç
+                            <input type="file" name="ImageUpload">
+                        </button>
+
+                    </div>
+
+                    <div class="text-center" style="margin-left:15px"><button class="btn btn-primary" type="submit">Yükle</button></div>
 
                 </div>
-                
-                <div class="text-center" style="margin-left:15px"><button class="btn btn-primary" type="submit">Yükle</button></div>
 
-            </div>
-            
-            
-        </form>
-    </div>
-</section>
+
+            </form>
+        </div>
+    </section>*@
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
