@@ -1,5 +1,6 @@
 ﻿@using EntityLayer.Concrete
-@model List<Image>
+@model IPagedList<Image>
+
 
 <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 
@@ -7,16 +8,28 @@
         @foreach (var item in Model)
         {
 
-        
-        <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-                <a href="@item.ImageUpload" class="venobox" data-gall="gallery-item" >
-                    <img src="@item.ImageUpload" alt="" style="width:800px;height:600px" class="img-fluid">
-                </a>
+
+            <div class="col-lg-3 col-md-4">
+                <div class="gallery-item">
+                    <a href="@item.ImageUpload" class="venobox" data-gall="gallery-item">
+                        <img src="@item.ImageUpload" alt="" style="width:800px;height:600px" class="img-fluid">
+                    </a>
+                </div>
             </div>
-        </div>
         }
 
     </div>
 
 </div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }),
+new PagedListRenderOptions
+{
+    LinkToFirstPageFormat = "<<İlk",
+    LinkToLastPageFormat = "Son>>",
+    LinkToNextPageFormat = "sonraki>",
+    LinkToPreviousPageFormat = "<önceki",
+    ContainerDivClasses = new[] { "navigation" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+    ActiveLiElementClass = "active"
+})
