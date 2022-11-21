@@ -12,10 +12,9 @@ namespace MenduhInsaat.ViewComponents
     public class Images:ViewComponent
     {
         ImageManager imageManager = new ImageManager(new EfImageRepository());
-        public async Task<IViewComponentResult> InvokeAsync(int page=1)
+        public IViewComponentResult Invoke(int page=1)
         {
-            var images = imageManager.GetList();
-            var values =await images.ToPagedListAsync(page, 4);
+            var values = imageManager.GetList();
             return View(values);
         }
 

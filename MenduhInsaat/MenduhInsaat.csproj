@@ -36,7 +36,6 @@
     <Folder Include="wwwroot\EmployeeImageFolder\" />
     <Folder Include="wwwroot\UpdateUploadImage2\" />
     <Folder Include="wwwroot\UpdateUploadImage\" />
-    <Folder Include="wwwroot\WorkImage\" />
   </ItemGroup>
 
 </Project>

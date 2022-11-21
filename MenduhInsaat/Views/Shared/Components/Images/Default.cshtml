@@ -1,5 +1,5 @@
 ﻿@using EntityLayer.Concrete
-@model IPagedList<Image>
+@model List<Image>
 
 
 <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
@@ -21,15 +21,3 @@
     </div>
 
 </div>
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }),
-new PagedListRenderOptions
-{
-    LinkToFirstPageFormat = "<<İlk",
-    LinkToLastPageFormat = "Son>>",
-    LinkToNextPageFormat = "sonraki>",
-    LinkToPreviousPageFormat = "<önceki",
-    ContainerDivClasses = new[] { "navigation" },
-    LiElementClasses = new[] { "page-item" },
-    PageClasses = new[] { "page-link" },
-    ActiveLiElementClass = "active"
-})
