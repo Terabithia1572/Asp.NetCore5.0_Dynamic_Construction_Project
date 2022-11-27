@@ -22,7 +22,7 @@ namespace MenduhInsaat.ViewComponents
             _userManager = userManager;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public IViewComponentResult Invoke()
         {
             //var userName = context.Admins.Where(x => x.Username == "Admin").Select(y => y.Name).FirstOrDefault();
             //var user = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -32,8 +32,9 @@ namespace MenduhInsaat.ViewComponents
             var username = User.Identity.Name;
             ViewBag.v1 = username;
             var usermail = context.Admins.Where(x => x.Username == username).Select(y => y.Name).FirstOrDefault();
+            
             var adminID = context.Admins.Where(x => x.Name == usermail).Select(y => y.AdminID).FirstOrDefault();
-            var values = adminManager.GetList();
+            var values = adminManager.GetAdminByID(adminID);
             return View(values);
         }
     }

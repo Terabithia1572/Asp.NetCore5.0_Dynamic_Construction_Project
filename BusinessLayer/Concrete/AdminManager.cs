@@ -19,6 +19,11 @@ namespace BusinessLayer.Concrete
             _adminDal = adminDal;
         }
 
+        public List<Admin> GetAdminByID(int id)
+        {
+            return _adminDal.GetListAll(x => x.AdminID == id);
+        }
+
         public List<Admin> GetList()
         {
             return _adminDal.GetListAll();
