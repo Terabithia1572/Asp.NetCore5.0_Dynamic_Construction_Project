@@ -22,7 +22,7 @@ namespace MenduhInsaat.Controllers
             var values = productManager.GetList();
             return View(values);
         }
-        [AllowAnonymous]
+        
         public IActionResult ProductList()
         {
             var values = productManager.GetList();

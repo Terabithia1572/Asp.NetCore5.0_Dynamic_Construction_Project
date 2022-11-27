@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MenduhInsaat.Controllers
 {
-    [AllowAnonymous]
+    
     public class CategoryController : Controller
     {
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
