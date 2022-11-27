@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MenduhInsaat.Controllers
 {
-    [AllowAnonymous]
+    
     public class RegisterUserController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
