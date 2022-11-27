@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete
 {
-   public class Context:DbContext
+   public class Context:IdentityDbContext<AppUser>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=45.10.150.55\\MSSQLSERVER2012;database=menduhDB;user=sqladmin;password=Yunus6565*");
+            optionsBuilder.UseSqlServer("server=.;database=ConstructionDBV1.0;integrated security=true;");
+            //optionsBuilder.UseSqlServer("server=45.10.150.55\\MSSQLSERVER2012;database=menduhDB;user=sqladmin;password=Yunus6565*");
 
         }
         public DbSet<Admin> Admins { get; set; }
