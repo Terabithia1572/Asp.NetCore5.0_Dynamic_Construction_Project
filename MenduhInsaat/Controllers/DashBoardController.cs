@@ -49,5 +49,6 @@ namespace MenduhInsaat.Controllers
         {
             return PartialView();
         }
+   
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -16,6 +17,8 @@ namespace MenduhInsaat.Controllers
     {
         ProductManager productManager = new ProductManager(new EfProductRepository());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
+        AdminManager adminManager = new AdminManager(new EfAdminRepository());
+        Context context = new Context();
         [AllowAnonymous]
         public IActionResult Index()
         {
@@ -25,6 +28,13 @@ namespace MenduhInsaat.Controllers
         
         public IActionResult ProductList()
         {
+            var username = User.Identity.Name;
+            ViewBag.v1 = username;
+            var usermail = context.Admins.Where(x => x.Username == username).Select(y => y.Name).FirstOrDefault();
+            var userDescription = context.Admins.Where(x => x.Username == username).Select(y => y.ShortDescription).FirstOrDefault();
+            var adminID = context.Admins.Where(x => x.Name == usermail).Select(y => y.AdminID).FirstOrDefault();
+            ViewBag.v2 = usermail;
+            ViewBag.v3 = userDescription.Substring(0, 23);
             var values = productManager.GetList();
             return View(values);
         }
