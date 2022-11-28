@@ -17,10 +17,18 @@ namespace MenduhInsaat.Controllers
     public class ImageController : Controller
     {
         ImageManager imageManager = new ImageManager(new EfImageRepository());
+        AdminManager adminManager = new AdminManager(new EfAdminRepository());   
         Context context = new Context();
 
         public IActionResult Index()
         {
+            var username = User.Identity.Name;
+            ViewBag.v1 = username;
+            var usermail = context.Admins.Where(x => x.Username == username).Select(y => y.Name).FirstOrDefault();
+            var userDescription = context.Admins.Where(x => x.Username == username).Select(y => y.ShortDescription).FirstOrDefault();
+            var adminID = context.Admins.Where(x => x.Name == usermail).Select(y => y.AdminID).FirstOrDefault();
+            ViewBag.v2 = usermail;
+            ViewBag.v3 = userDescription.Substring(0, 23);
             var values = imageManager.GetList();
             return View(values);
         }

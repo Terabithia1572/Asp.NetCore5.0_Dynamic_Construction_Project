@@ -1,5 +1,6 @@
 ﻿
 using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -15,6 +16,8 @@ namespace MenduhInsaat.Controllers
     public class CategoryController : Controller
     {
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
+        AdminManager adminManager = new AdminManager(new EfAdminRepository());
+        Context context = new Context();
         public IActionResult Index()
         {
             var values = cm.GetList();
@@ -37,6 +40,15 @@ namespace MenduhInsaat.Controllers
         }
         public IActionResult CategoryList()
         {
+            var username = User.Identity.Name;
+            ViewBag.v1 = username;
+            var usermail = context.Admins.Where(x => x.Username == username).Select(y => y.Name).FirstOrDefault();
+            var userDescription = context.Admins.Where(x => x.Username == username).Select(y => y.ShortDescription).FirstOrDefault();
+            var userProfile = context.Admins.Where(x => x.Username == username).Select(y => y.ImageURL).FirstOrDefault();
+            ViewBag.v4 = userProfile;
+            var adminID = context.Admins.Where(x => x.Name == usermail).Select(y => y.AdminID).FirstOrDefault();
+            ViewBag.v2 = usermail;
+            ViewBag.v3 = userDescription.Substring(0, 23);
             var values = cm.GetList();
             return View(values);
         }
