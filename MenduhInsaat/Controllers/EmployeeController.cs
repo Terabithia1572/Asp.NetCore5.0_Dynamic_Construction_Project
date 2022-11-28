@@ -34,6 +34,8 @@ namespace MenduhInsaat.Controllers
             ViewBag.v1 = username;
             var usermail = context.Admins.Where(x => x.Username == username).Select(y => y.Name).FirstOrDefault();
             var userDescription = context.Admins.Where(x => x.Username == username).Select(y => y.ShortDescription).FirstOrDefault();
+            var userProfile = context.Admins.Where(x => x.Username == username).Select(y => y.ImageURL).FirstOrDefault();
+            ViewBag.v4 = userProfile;
             var adminID = context.Admins.Where(x => x.Name == usermail).Select(y => y.AdminID).FirstOrDefault();
             ViewBag.v2 = usermail;
             ViewBag.v3 = userDescription.Substring(0, 23);
@@ -44,7 +46,15 @@ namespace MenduhInsaat.Controllers
         [HttpGet]
         public IActionResult AddEmployee()
         {
-            
+            var username = User.Identity.Name;
+            ViewBag.v1 = username;
+            var usermail = context.Admins.Where(x => x.Username == username).Select(y => y.Name).FirstOrDefault();
+            var userDescription = context.Admins.Where(x => x.Username == username).Select(y => y.ShortDescription).FirstOrDefault();
+            var userProfile = context.Admins.Where(x => x.Username == username).Select(y => y.ImageURL).FirstOrDefault();
+            ViewBag.v4 = userProfile;
+            var adminID = context.Admins.Where(x => x.Name == usermail).Select(y => y.AdminID).FirstOrDefault();
+            ViewBag.v2 = usermail;
+            ViewBag.v3 = userDescription.Substring(0, 23);
             return View();
         }
         [HttpPost]
@@ -83,6 +93,15 @@ namespace MenduhInsaat.Controllers
         [HttpGet]
         public IActionResult UpdateEmployee(int id)
         {
+            var username = User.Identity.Name;
+            ViewBag.v1 = username;
+            var usermail = context.Admins.Where(x => x.Username == username).Select(y => y.Name).FirstOrDefault();
+            var userDescription = context.Admins.Where(x => x.Username == username).Select(y => y.ShortDescription).FirstOrDefault();
+            var userProfile = context.Admins.Where(x => x.Username == username).Select(y => y.ImageURL).FirstOrDefault();
+            ViewBag.v4 = userProfile;
+            var adminID = context.Admins.Where(x => x.Name == usermail).Select(y => y.AdminID).FirstOrDefault();
+            ViewBag.v2 = usermail;
+            ViewBag.v3 = userDescription.Substring(0, 23);
             var values = employeeManager.TGetByID(id);
             ViewBag.v1 = values;
             return View(values);
