@@ -53,7 +53,7 @@
     <!-- ======= Header ======= -->
     @await Html.PartialAsync("UstHeader") <!-- End Header -->
     <!-- ======= Hero Section ======= -->
-    @await Component.InvokeAsync("Videos") 
+    @await Component.InvokeAsync("Videos")
     <!-- End Hero -->
 
     <main id="main">
@@ -88,9 +88,9 @@
             @await Component.InvokeAsync("Images")
             <br />
         </section>
-       
-               
-<!-- End Gallery Section -->
+
+
+        <!-- End Gallery Section -->
         <!-- ======= Chefs Section ======= -->
         @await Component.InvokeAsync("Employees") <!-- End Chefs Section -->
         <!-- ======= Contact Section ======= -->
@@ -173,6 +173,16 @@
 
     <!-- Template Main JS File -->
     <script src="~/menduhinsaat/assets/js/main.js"></script>
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-216649461-1">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-216649461-1');
+    </script>
 
 </body>
 
